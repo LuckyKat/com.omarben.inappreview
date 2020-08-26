@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
-        id="com.omarben.inappreview"
-        version="0.0.5">
+        id="cordova-plugin-inappreview"
+        version="0.0.6">
 
   <name>inappreview</name>
 
@@ -17,15 +17,23 @@
 
 
   <platform name="ios">
-    
     <config-file target="config.xml" parent="/widget">
       <feature name="Review">
         <param name="ios-package" value="SKstorereview" />
       </feature>
     </config-file>
-
     <header-file src="src/ios/SKstorereview.h" target-dir="SKstorereview"/>
     <source-file src="src/ios/SKstorereview.m" target-dir="SKstorereview"/>
+  </platform>
+
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/widget">
+        <feature name="Review">
+            <param name="android-package" value="com.luckykat.InAppReview"/>
+        </feature>
+    </config-file>
+    <source-file src="src/android/InAppReview.java" target-dir="src/com/luckykat"/>
+    <framework src="com.google.android.play:core:+" />
   </platform>
 
 </plugin>
